@@ -1,0 +1,11 @@
+INFO 2024-06-17T09:00:01Z - GENIE started
+INFO 2024-06-17T09:00:03Z - Claude Bias: +0.74
+DEBUG 2024-06-17T09:00:05Z - MARL Reggie: Action=BUY, Confidence=0.67
+ERROR 2024-06-17T09:01:12Z - PredictNow API timeout
+INFO 2024-06-17T09:10:15Z - Trade executed: SPY @ 435.62
+INFO 2024-06-17T09:15:21Z - Journaling complete
+INFO 2024-06-18T09:00:01Z - GENIE started
+INFO 2024-06-18T09:00:03Z - Claude Bias: -0.55
+DEBUG 2024-06-18T09:10:22Z - MARL Ace: Action=SELL, Confidence=0.71
+INFO 2024-06-18T09:15:05Z - Trade executed: QQQ @ 359.78
+ERROR 2024-06-18T09:16:41Z - Slack webhook not delivered

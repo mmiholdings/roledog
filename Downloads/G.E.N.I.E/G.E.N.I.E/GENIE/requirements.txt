@@ -1,0 +1,5 @@
+streamlit
+redis
+openai
+psycopg2-binary
+boto3
