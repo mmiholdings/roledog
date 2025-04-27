@@ -1,0 +1,6 @@
+# File Index
+
+| File Name         | Purpose            | Type   | Dependencies    | Last Modified   |
+|:------------------|:-------------------|:-------|:----------------|:----------------|
+| agent_template.py | Signal generator   | Script | os, json, time  | 2025-04-11      |
+| main_dashboard.py | Live PnL dashboard | UI     | streamlit, json | 2025-04-11      |

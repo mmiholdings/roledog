@@ -1,0 +1,9 @@
+
+# Run MARL agent retraining every Sunday at 6pm UTC
+0 18 * * 0 /home/ec2-user/genie_marl_train.sh >> /home/ec2-user/marl_train.log 2>&1
+
+# n8n node scheduler example:
+1️⃣ Cron Node: Weekly - Sunday 6pm
+2️⃣ Execute Command Node:
+Command:
+python3 /home/ec2-user/marl_agent.py --train --episodes=100000 --env=TradingEnv

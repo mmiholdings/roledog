@@ -1,0 +1,4 @@
+{
+  "name": "Slack Retrain Trigger Workflow",
+  "trigger": "Slack command"
+}

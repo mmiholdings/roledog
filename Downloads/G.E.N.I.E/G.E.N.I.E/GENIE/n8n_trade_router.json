@@ -1,0 +1,67 @@
+{
+  "name": "GENIE Trade Copier Flow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "functionCode": "const trade = {\n  symbol: $json[\"symbol\"],\n  side: $json[\"side\"],\n  qty: $json[\"qty\"],\n  price: $json[\"price\"]\n};\n\nreturn [{ json: trade }];"
+      },
+      "id": "2",
+      "name": "Format Trade",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "http://localhost:8000/genie-trade-copier",
+        "jsonParameters": true,
+        "options": {},
+        "bodyParametersJson": "{ \"symbol\": \"={{ $json[\"symbol\"] }}\", \"qty\": \"={{ $json[\"qty\"] }}\", \"side\": \"={{ $json[\"side\"] }}\", \"price\": \"={{ $json[\"price\"] }}\" }"
+      },
+      "id": "3",
+      "name": "Send to Trade Copier",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "webhookUri": "your_slack_webhook_url",
+        "messageText": "Trade routed: {{$json.symbol}} {{$json.side}} {{$json.qty}} @ {{$json.price}}"
+      },
+      "id": "4",
+      "name": "Slack Notification",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          "Format Trade"
+        ]
+      ]
+    },
+    "Format Trade": {
+      "main": [
+        [
+          "Send to Trade Copier"
+        ]
+      ]
+    },
+    "Send to Trade Copier": {
+      "main": [
+        [
+          "Slack Notification"
+        ]
+      ]
+    }
+  }
+}

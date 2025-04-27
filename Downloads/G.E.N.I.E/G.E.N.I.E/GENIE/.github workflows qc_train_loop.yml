@@ -1,0 +1,31 @@
+name: Train_MARL_QC_MES
+
+on:
+  schedule:
+    - cron: "0 12 * * 0"  # Every Sunday
+  workflow_dispatch:
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas stable-baselines3 gym numpy
+
+      - name: Fetch MES data from QuantConnect
+        run: python qc_data/fetch_qc_mes.py
+
+      - name: Generate Replay Buffer
+        run: python buffer/prepare_replay_buffer.py
+
+      - name: Train PPO Agent
+        run: python marl/train_mo.py

@@ -1,0 +1,25 @@
+
+{
+  "family": "genie-ecs-task",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "genie3",
+      "image": "682033469983.dkr.ecr.us-east-2.amazonaws.com/genie3:latest",
+      "cpu": 256,
+      "memory": 512,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::682033469983:role/ecsTaskExecutionRole"
+}

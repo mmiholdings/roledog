@@ -1,0 +1,14 @@
+
+You are an AI trade supervisor. Analyze the GENIE trade journal and answer:
+
+1. How accurate was Claude sentiment this week?
+2. Which days did Claude underperform?
+3. Was Claude more effective in bullish or bearish scenarios?
+4. Based on this, should Claude's influence be adjusted?
+
+Input:
+<PASTE TRADE JOURNAL CSV HERE>
+
+Expected Output:
+- Bullet points of Claude performance.
+- Suggestions on confidence scaling for next week.

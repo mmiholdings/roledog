@@ -1,0 +1,22 @@
+{
+  "name": "Update Agent Params on Notion Change",
+  "type": "n8n-nodes-base.webhook",
+  "parameters": {
+    "path": "update-agent-params",
+    "httpMethod": "POST",
+    "responseMode": "lastNode",
+    "options": {}
+  },
+  "nodes": [
+    {
+      "name": "Update Params",
+      "type": "n8n-nodes-base.function",
+      "parameters": {
+        "functionCode": "const payload = $json;
+const agent = payload.agent;
+const newConf = payload.confidence;
+return [{ json: { message: `Update ${agent} learning rate to ${newConf * 0.001}` } }];"
+      }
+    }
+  ]
+}
