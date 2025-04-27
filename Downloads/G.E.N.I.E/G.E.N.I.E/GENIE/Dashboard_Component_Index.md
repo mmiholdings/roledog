@@ -1,6 +1,0 @@
-# Dashboard Component Index
-
-| Dashboard   | Component    | File                  | Data Source    |
-|:------------|:-------------|:----------------------|:---------------|
-| Terminal    | PnL Metric   | main_dashboard.py     | signals/*.json |
-| Training    | Reward Chart | training_dashboard.py | buffer/*.json  |

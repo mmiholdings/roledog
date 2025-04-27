@@ -1,1 +1,0 @@
-curl -X POST https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK   -H 'Content-type: application/json'   --data '{"text":"🚀 GENIE Infra Deploy Triggered via Slack!"}'

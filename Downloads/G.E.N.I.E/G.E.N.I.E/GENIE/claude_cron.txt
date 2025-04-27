@@ -1,1 +1,0 @@
-0 * * * * python3 /app/audit/claude_summary.py
