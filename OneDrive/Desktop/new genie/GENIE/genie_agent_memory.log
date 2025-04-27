@@ -1,0 +1,7 @@
+INFO:root:\U0001f4ca Agent Metrics:
+       sharpe        pnl
+         mean  min   sum
+agent                   
+Ace      1.55  1.5  8900
+Mo       1.25  1.2  6400
+Reggie   0.85  0.8  3800

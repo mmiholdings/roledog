@@ -1,0 +1,96 @@
+# 🚀 G.E.N.I.E. 3.1 — Unified Docker Compose Stack
+
+version: '3.8'
+
+services:
+  # 📦 PostgreSQL Database
+  postgres:
+    image: postgres:14
+    container_name: genie_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: genie_trading
+      POSTGRES_USER: genie_user
+      POSTGRES_PASSWORD: securepassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 🔁 Redis Agent Memory
+  redis:
+    image: redis:6.2
+    container_name: genie_redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+  # ⚙️ n8n Workflow Orchestrator
+  n8n:
+    image: n8nio/n8n
+    container_name: genie_n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=securepassword
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_DATABASE=genie_trading
+      - DB_POSTGRESDB_USER=genie_user
+      - DB_POSTGRESDB_PASSWORD=securepassword
+    depends_on:
+      - postgres
+
+  # 🧠 AI Sentiment Analysis API
+  sentiment_api:
+    image: python:3.9
+    container_name: genie_sentiment_api
+    restart: always
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./sentiment_analysis:/app
+    working_dir: /app
+    command: ["python", "sentiment_analysis.py"]
+
+  # 🌐 NinjaTrader WebSocket Server
+  ninjatrader_ws:
+    image: node:14
+    container_name: genie_ninjatrader_ws
+    restart: always
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./ninjatrader_ws:/app
+    working_dir: /app
+    command: ["node", "server.js"]
+
+  # 📊 GENIE Dashboard Terminal
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: genie_dashboard
+    ports:
+      - "8501:8501"
+    depends_on:
+      - postgres
+      - redis
+    command: streamlit run dashboard/streamlit_terminal_dashboard.py
+
+  # 🧪 MARL Agent Trainer (example: Mo)
+  agent_trainer:
+    image: python:3.10
+    container_name: genie_trainer
+    volumes:
+      - ./agents:/app/agents
+    working_dir: /app/agents
+    command: ["python", "train_mo.py"]
+    depends_on:
+      - redis
+      - postgres
+
+volumes:
+  postgres_data:

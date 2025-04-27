@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis
+    container_name: genie-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+
+  postgres:
+    image: postgres
+    container_name: genie-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: genie
+      POSTGRES_PASSWORD: geniepass
+      POSTGRES_DB: geniedb
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  n8n:
+    image: n8nio/n8n
+    container_name: genie-n8n
+    ports:
+      - "5678:5678"
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: genie-streamlit
+    ports:
+      - "8501:8501"
+
+volumes:
+  redis_data:
+  pg_data:

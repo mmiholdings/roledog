@@ -1,0 +1,460 @@
+{
+  "File_Index": {
+    "name": "File Index",
+    "rows": [
+      {
+        "File Name": {
+          "type": "text",
+          "value": "agent_template.py"
+        },
+        "Purpose": {
+          "type": "text",
+          "value": "Signal generator"
+        },
+        "Type": {
+          "type": "text",
+          "value": "Script"
+        },
+        "Dependencies": {
+          "type": "text",
+          "value": "os, json, time"
+        },
+        "Last Modified": {
+          "type": "date",
+          "value": "2025-04-11"
+        }
+      },
+      {
+        "File Name": {
+          "type": "text",
+          "value": "main_dashboard.py"
+        },
+        "Purpose": {
+          "type": "text",
+          "value": "Live PnL dashboard"
+        },
+        "Type": {
+          "type": "text",
+          "value": "UI"
+        },
+        "Dependencies": {
+          "type": "text",
+          "value": "streamlit, json"
+        },
+        "Last Modified": {
+          "type": "date",
+          "value": "2025-04-11"
+        }
+      }
+    ]
+  },
+  "Agent_Index": {
+    "name": "Agent Index",
+    "rows": [
+      {
+        "Agent Name": {
+          "type": "text",
+          "value": "Mo"
+        },
+        "Strategy": {
+          "type": "text",
+          "value": "PPO"
+        },
+        "Status": {
+          "type": "select",
+          "value": "Active"
+        },
+        "Win Rate": {
+          "type": "text",
+          "value": "91%"
+        },
+        "Assigned Symbol": {
+          "type": "text",
+          "value": "MES"
+        }
+      },
+      {
+        "Agent Name": {
+          "type": "text",
+          "value": "Ace"
+        },
+        "Strategy": {
+          "type": "text",
+          "value": "DQN"
+        },
+        "Status": {
+          "type": "select",
+          "value": "Training"
+        },
+        "Win Rate": {
+          "type": "text",
+          "value": "86%"
+        },
+        "Assigned Symbol": {
+          "type": "text",
+          "value": "MNQ"
+        }
+      }
+    ]
+  },
+  "Deployment_Index": {
+    "name": "Deployment Index",
+    "rows": [
+      {
+        "Platform": {
+          "type": "text",
+          "value": "EC2"
+        },
+        "Version": {
+          "type": "text",
+          "value": "v3.5"
+        },
+        "Deployed": {
+          "type": "text",
+          "value": "2025-04-11"
+        },
+        "Status": {
+          "type": "select",
+          "value": "Live"
+        },
+        "URL/IP": {
+          "type": "text",
+          "value": "13.58.x.x"
+        }
+      },
+      {
+        "Platform": {
+          "type": "text",
+          "value": "Render"
+        },
+        "Version": {
+          "type": "text",
+          "value": "v3.5"
+        },
+        "Deployed": {
+          "type": "text",
+          "value": "2025-04-10"
+        },
+        "Status": {
+          "type": "select",
+          "value": "Paused"
+        },
+        "URL/IP": {
+          "type": "text",
+          "value": "genie.render.com"
+        }
+      }
+    ]
+  },
+  "Integration_Index": {
+    "name": "Integration Index",
+    "rows": [
+      {
+        "Platform": {
+          "type": "text",
+          "value": "Claude API"
+        },
+        "Status": {
+          "type": "select",
+          "value": "Connected"
+        },
+        "API Key": {
+          "type": "text",
+          "value": "Vaulted"
+        },
+        "Webhook": {
+          "type": "text",
+          "value": "claude/genie"
+        },
+        "Docs": {
+          "type": "text",
+          "value": "internal.md"
+        }
+      },
+      {
+        "Platform": {
+          "type": "text",
+          "value": "CopyTrader"
+        },
+        "Status": {
+          "type": "select",
+          "value": "Pending"
+        },
+        "API Key": {
+          "type": "text",
+          "value": "N/A"
+        },
+        "Webhook": {
+          "type": "text",
+          "value": "copytrader/genie"
+        },
+        "Docs": {
+          "type": "text",
+          "value": "external.md"
+        }
+      }
+    ]
+  },
+  "Alert_&_Trigger_Index": {
+    "name": "Alert & Trigger Index",
+    "rows": [
+      {
+        "Trigger": {
+          "type": "text",
+          "value": "PnL Drop > $300"
+        },
+        "Type": {
+          "type": "text",
+          "value": "Telegram"
+        },
+        "Source File": {
+          "type": "text",
+          "value": "telegram_alert_trigger.py"
+        },
+        "Updated": {
+          "type": "date",
+          "value": "2025-04-10"
+        }
+      },
+      {
+        "Trigger": {
+          "type": "text",
+          "value": "Alpha Spike > 10%"
+        },
+        "Type": {
+          "type": "text",
+          "value": "Slack"
+        },
+        "Source File": {
+          "type": "text",
+          "value": "slack_notifier.py"
+        },
+        "Updated": {
+          "type": "date",
+          "value": "2025-04-11"
+        }
+      }
+    ]
+  },
+  "Dashboard_Component_Index": {
+    "name": "Dashboard Component Index",
+    "rows": [
+      {
+        "Dashboard": {
+          "type": "text",
+          "value": "Terminal"
+        },
+        "Component": {
+          "type": "text",
+          "value": "PnL Metric"
+        },
+        "File": {
+          "type": "text",
+          "value": "main_dashboard.py"
+        },
+        "Data Source": {
+          "type": "text",
+          "value": "signals/*.json"
+        }
+      },
+      {
+        "Dashboard": {
+          "type": "select",
+          "value": "Training"
+        },
+        "Component": {
+          "type": "text",
+          "value": "Reward Chart"
+        },
+        "File": {
+          "type": "text",
+          "value": "training_dashboard.py"
+        },
+        "Data Source": {
+          "type": "text",
+          "value": "buffer/*.json"
+        }
+      }
+    ]
+  },
+  "Training_History_Index": {
+    "name": "Training History Index",
+    "rows": [
+      {
+        "Agent": {
+          "type": "text",
+          "value": "Mo"
+        },
+        "Date Range": {
+          "type": "date",
+          "value": "Apr 1\u201311"
+        },
+        "Model": {
+          "type": "text",
+          "value": "ppo_mo_0411.zip"
+        },
+        "Timesteps": {
+          "type": "text",
+          "value": "5M"
+        },
+        "Avg Reward": {
+          "type": "text",
+          "value": "1.24"
+        }
+      },
+      {
+        "Agent": {
+          "type": "text",
+          "value": "Ace"
+        },
+        "Date Range": {
+          "type": "date",
+          "value": "Apr 3\u201311"
+        },
+        "Model": {
+          "type": "text",
+          "value": "ppo_ace_0411.zip"
+        },
+        "Timesteps": {
+          "type": "text",
+          "value": "4.2M"
+        },
+        "Avg Reward": {
+          "type": "text",
+          "value": "0.92"
+        }
+      }
+    ]
+  },
+  "Backup_&_Storage_Index": {
+    "name": "Backup & Storage Index",
+    "rows": [
+      {
+        "File": {
+          "type": "text",
+          "value": "ppo_mo_0411.zip"
+        },
+        "S3 Path": {
+          "type": "text",
+          "value": "s3://genie-models/2025-04-11/"
+        },
+        "Size": {
+          "type": "text",
+          "value": "12MB"
+        },
+        "Trigger": {
+          "type": "text",
+          "value": "Daily cron"
+        }
+      },
+      {
+        "File": {
+          "type": "text",
+          "value": "mes_buffer.json"
+        },
+        "S3 Path": {
+          "type": "text",
+          "value": "s3://genie-models/2025-04-11/"
+        },
+        "Size": {
+          "type": "text",
+          "value": "4MB"
+        },
+        "Trigger": {
+          "type": "text",
+          "value": "Manual"
+        }
+      }
+    ]
+  },
+  "Secrets_Index": {
+    "name": "Secrets Index",
+    "rows": [
+      {
+        "Token": {
+          "type": "text",
+          "value": "Claude API"
+        },
+        "Env Variable": {
+          "type": "text",
+          "value": "CLAUDE_KEY"
+        },
+        "Usage File": {
+          "type": "text",
+          "value": "claude_summary.py"
+        },
+        "Status": {
+          "type": "text",
+          "value": "Vaulted"
+        }
+      },
+      {
+        "Token": {
+          "type": "text",
+          "value": "AWS"
+        },
+        "Env Variable": {
+          "type": "text",
+          "value": "AWS_SECRET"
+        },
+        "Usage File": {
+          "type": "text",
+          "value": "sync_models_to_s3.sh"
+        },
+        "Status": {
+          "type": "text",
+          "value": "Vaulted"
+        }
+      }
+    ]
+  },
+  "Roadmap_Index": {
+    "name": "Roadmap Index",
+    "rows": [
+      {
+        "Feature": {
+          "type": "text",
+          "value": "ECS Deployment"
+        },
+        "Owner": {
+          "type": "text",
+          "value": "Chris"
+        },
+        "Status": {
+          "type": "text",
+          "value": "In Dev"
+        },
+        "ETA": {
+          "type": "text",
+          "value": "Apr 20"
+        },
+        "GitHub": {
+          "type": "text",
+          "value": "issues/12"
+        }
+      },
+      {
+        "Feature": {
+          "type": "text",
+          "value": "Telegram Alert Engine"
+        },
+        "Owner": {
+          "type": "text",
+          "value": "Ian"
+        },
+        "Status": {
+          "type": "select",
+          "value": "Live"
+        },
+        "ETA": {
+          "type": "text",
+          "value": "Deployed"
+        },
+        "GitHub": {
+          "type": "text",
+          "value": "issues/8"
+        }
+      }
+    ]
+  }
+}

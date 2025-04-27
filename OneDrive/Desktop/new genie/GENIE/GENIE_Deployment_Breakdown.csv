@@ -1,0 +1,11 @@
+File,Category,Description
+quantconnect_smartflow_template.py,QuantConnect Strategy,Inject SmartFlow bias + Claude sentiment directly into OnData()
+genie_marl_training_loop.py,RL Training Loop,Stable-Baselines3 PPO training loop for SmartFlow-aware MARL agents
+n8n_claude_workflow.json,n8n Workflow,Claude → PostgreSQL → Telegram alert automation
+cohere_semantic_similarity.py,Cohere Pattern Matching,Semantic similarity ranking for trade pattern classification
+GENIE_CI_CD_Guide.md,CI/CD Guide,Full CI/CD auto-deployment guide via GitHub Actions & EC2
+claude_ci_cd_log_analyzer.py,Claude Log Analyzer,GPT/Claude CI failure analysis script
+generate_trade_review_board.py,GPT Trade Review Board,Auto-summarizes best/worst trades each week via Claude
+GENIE_Deployment_Infra_Map.xlsx,Infra Spreadsheet,Full automation tracker for GENIE modules
+GENIE_Trigger_Architecture.png,System Flowchart,GENIE 3.0 trigger-based architecture map
+weekly_audit_prompt.txt,Claude Audit Prompt,Paste this to Claude to get weekly infra summary
