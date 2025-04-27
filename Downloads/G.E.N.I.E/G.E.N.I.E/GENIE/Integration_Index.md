@@ -1,6 +1,0 @@
-# Integration Index
-
-| Platform   | Status    | API Key   | Webhook          | Docs        |
-|:-----------|:----------|:----------|:-----------------|:------------|
-| Claude API | Connected | Vaulted   | claude/genie     | internal.md |
-| CopyTrader | Pending   | N/A       | copytrader/genie | external.md |

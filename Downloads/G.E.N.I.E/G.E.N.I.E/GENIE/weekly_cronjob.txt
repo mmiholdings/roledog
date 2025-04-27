@@ -1,2 +1,0 @@
-
-0 17 * * 5 /usr/bin/python3 /home/ec2-user/genie/scripts/export_cloudwatch_logs.py && /usr/bin/python3 /home/ec2-user/genie/scripts/claude_audit.py && /usr/bin/python3 /home/ec2-user/genie/scripts/post_audit_to_notion.py

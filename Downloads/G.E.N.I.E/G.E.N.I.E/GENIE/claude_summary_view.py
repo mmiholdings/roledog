@@ -1,1 +1,0 @@
-# Streamlit component for Claude/GPT summary markdown rendering

@@ -1,1 +1,0 @@
-# Placeholder for qc_price_fetcher.py

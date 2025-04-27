@@ -1,1 +1,0 @@
-# Reggie as validator
