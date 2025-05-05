@@ -1,7 +1,7 @@
 services:
   - type: web
     name: roledogs-api
-    env: node
+    environment: node           # ← changed here
     region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
@@ -12,7 +12,7 @@ services:
 
   - type: worker
     name: roledogs-worker
-    env: node
+    environment: node           # ← and here
     region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
@@ -22,7 +22,7 @@ services:
 
   - type: web
     name: roledogs-keycloak
-    env: docker
+    environment: docker         # ← and here
     region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
