@@ -1,0 +1,21 @@
+{
+  "source": "reddit",
+  "subreddits": [
+    "/r/television",
+    "/r/Filmmakers"
+  ],
+  "posts": [
+    {
+      "title": "What's your favorite opening scene from a TV series?",
+      "url": "https://reddit.com/r/television/comments/example1",
+      "upvotes": 185,
+      "comments": 22
+    },
+    {
+      "title": "Anyone here successfully pitched a series to Netflix?",
+      "url": "https://reddit.com/r/Filmmakers/comments/example2",
+      "upvotes": 241,
+      "comments": 45
+    }
+  ]
+}
