@@ -21,13 +21,13 @@ services:
     startCommand: cd services/worker && node worker.js
     autoDeploy: true
 
+  # Keycloak runs via Dockerfile; Render will automatically build & run it.
   - type: web
     name: roledogs-keycloak
     env: docker
     region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
-    # Let Render build & run via your Dockerfile; no explicit commands needed:
     autoDeploy: true
 
 databases:
