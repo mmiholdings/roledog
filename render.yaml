@@ -1,0 +1,64 @@
+services:
+  - type: web
+    name: roledogs-api
+    env: node
+    region: ord
+    branch: main
+    repo: https://github.com/mmiholdings/roledog
+    buildCommand: |
+      cd services/api
+      npm install
+    startCommand: |
+      cd services/api
+      npm start
+    autoDeploy: true
+    envVars:
+      - key: RENDER_URL
+        value: https://roledogs.onrender.com
+      - key: KEYCLOAK_BASE
+        value: https://roledogs.onrender.com/keycloak
+      - key: POSTGRES_URL
+        value: "{{databases.roledogs-db.connectionString}}"
+
+  - type: worker
+    name: roledogs-worker
+    env: node
+    region: ord
+    branch: main
+    repo: https://github.com/mmiholdings/roledog
+    buildCommand: |
+      cd services/worker
+      npm install
+    startCommand: |
+      cd services/worker
+      node worker.js
+    autoDeploy: true
+    envVars:
+      - key: API_URL
+        value: https://roledogs.onrender.com
+      - key: POSTGRES_URL
+        value: "{{databases.roledogs-db.connectionString}}"
+      - key: MINIO_ENDPOINT
+        value: https://roledogs.onrender.com/minio
+
+  - type: web
+    name: roledogs-keycloak
+    env: docker
+    region: ord
+    branch: main
+    repo: https://github.com/mmiholdings/roledog
+    buildCommand: docker build -f services/keycloak/Dockerfile -t roledogs-keycloak .
+    startCommand: docker run -p 8080:8080 roledogs-keycloak
+    autoDeploy: true
+    envVars:
+      - key: DB_URL
+        value: "{{databases.roledogs-db.connectionString}}"
+      - key: KC_ADMIN_USER
+        value: admin
+      - key: KC_ADMIN_PASSWORD
+        value: admin
+
+databases:
+  - name: roledogs-db
+    engine: postgres
+    plan: free
