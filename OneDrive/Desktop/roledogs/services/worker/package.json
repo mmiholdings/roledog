@@ -1,0 +1,9 @@
+{
+  "name": "roledogs-worker",
+  "version": "0.1.0",
+  "main": "worker.js",
+  "dependencies": {
+    "bull": "^4.10.4",
+    "redis": "^4.6.7"
+  }
+}
