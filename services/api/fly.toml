@@ -1,0 +1,7 @@
+app = "roledogs-api"
+kill_signal = "SIGINT"
+kill_timeout = 5
+[build]
+  dockerfile = "Dockerfile"
+[env]
+  PORT = "4000"

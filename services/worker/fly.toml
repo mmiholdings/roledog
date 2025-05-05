@@ -1,0 +1,3 @@
+app="roledogs-worker"
+[build]
+  dockerfile="Dockerfile"
