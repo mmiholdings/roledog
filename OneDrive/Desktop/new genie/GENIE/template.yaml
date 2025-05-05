@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: G.E.N.I.E. AI Middleware API Stack
+
+Resources:
+  ClaudeSentimentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: claude_sentiment.lambda_handler
+      Runtime: python3.9
+      MemorySize: 512
+      Timeout: 10
+      Events:
+        ClaudeAPI:
+          Type: Api
+          Properties:
+            Path: /claude-sentiment
+            Method: get
+
+  JurassicParserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: jurassic_parser.lambda_handler
+      Runtime: python3.9
+      MemorySize: 512
+      Timeout: 10
+      Events:
+        JurassicAPI:
+          Type: Api
+          Properties:
+            Path: /jurassic-parse
+            Method: get

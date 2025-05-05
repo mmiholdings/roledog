@@ -1,0 +1,63 @@
+{
+  "name": "GENIE Claude Sentiment to DB + Alert",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://your-api.com/claude-sentiment",
+        "httpRequestMethod": "GET"
+      },
+      "name": "Get Claude Bias",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        300,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "query": "INSERT INTO sentiment_log (timestamp, source, score) VALUES (NOW(), 'Claude', {{$json[\"score\"]}});"
+      },
+      "name": "Insert to PostgreSQL",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        500,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "text": "Claude Sentiment: {{$json[\"score\"]}}",
+        "chatId": "YOUR_CHAT_ID"
+      },
+      "name": "Send Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        700,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Get Claude Bias": {
+      "main": [
+        [
+          {
+            "node": "Insert to PostgreSQL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+name: Weekly MARL Agent Training
+
+on:
+  schedule:
+    - cron: "0 12 * * 0"
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install stable-baselines3[extra] redis gym
+
+      - name: Train Mo Agent
+        run: python3 train_mo.py
+
+      - name: Train Reggie Agent
+        run: python3 train_reggie.py
+
+      - name: Train Ace Agent
+        run: python3 train_ace.py
+
+      - name: Upload Trained Models to S3
+        run: bash sync_models_to_s3.sh

@@ -1,0 +1,14 @@
+# Use official Python image
+FROM python:3.10
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy your dashboard folder into the container
+COPY dashboard/ /app/
+
+# Install required Python packages
+RUN pip install --no-cache-dir streamlit pandas numpy plotly psycopg2-binary
+
+# Run the dashboard
+CMD ["streamlit", "run", "streamlit_terminal_dashboard.py", "--server.port=8501", "--server.enableCORS=false"]

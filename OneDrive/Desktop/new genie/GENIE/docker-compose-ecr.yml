@@ -1,0 +1,10 @@
+
+version: '3'
+
+services:
+  genie:
+    image: 682033469983.dkr.ecr.us-east-2.amazonaws.com/genie3:latest
+    restart: always
+    container_name: genie-prod
+    ports:
+      - "8080:8080"

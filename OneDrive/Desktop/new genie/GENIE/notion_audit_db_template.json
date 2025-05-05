@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "Date": {
+      "type": "date"
+    },
+    "Audit Summary": {
+      "type": "rich_text"
+    },
+    "Failures": {
+      "type": "multi_select",
+      "options": []
+    },
+    "Retrained Agents": {
+      "type": "multi_select",
+      "options": []
+    },
+    "Actionables": {
+      "type": "rich_text"
+    }
+  }
+}

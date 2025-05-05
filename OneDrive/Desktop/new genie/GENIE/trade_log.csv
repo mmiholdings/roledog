@@ -1,0 +1,2 @@
+timestamp,broker,symbol,side,qty,price,status,response_time
+2025-04-27T08:13:52.169329,alpaca,AAPL,buy,5,195.43,success,0.333

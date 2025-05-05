@@ -1,0 +1,6 @@
+# Agent Index
+
+| Agent Name   | Strategy   | Status   | Win Rate   | Assigned Symbol   |
+|:-------------|:-----------|:---------|:-----------|:------------------|
+| Mo           | PPO        | Active   | 91%        | MES               |
+| Ace          | DQN        | Training | 86%        | MNQ               |

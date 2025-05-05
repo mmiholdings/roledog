@@ -1,0 +1,26 @@
+
+name: Push GENIE Docker Image to ECR
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Log in to Amazon ECR
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build Docker image
+      run: docker build -t genie3 .
+
+    - name: Tag image for ECR
+      run: docker tag genie3:latest 682033469983.dkr.ecr.us-east-2.amazonaws.com/genie3
+
+    - name: Push image to ECR
+      run: docker push 682033469983.dkr.ecr.us-east-2.amazonaws.com/genie3

@@ -1,0 +1,22 @@
+{
+  "name": "GENIE Slack + PostgreSQL + Claude",
+  "nodes": [
+    {
+      "name": "Trigger",
+      "type": "n8n-nodes-base.manualTrigger"
+    },
+    {
+      "name": "Postgres Insert",
+      "type": "n8n-nodes-base.postgres"
+    },
+    {
+      "name": "Slack Notify",
+      "type": "n8n-nodes-base.slack"
+    },
+    {
+      "name": "Claude GPT Trigger",
+      "type": "n8n-nodes-base.httpRequest"
+    }
+  ],
+  "connections": {}
+}

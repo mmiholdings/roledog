@@ -1,0 +1,22 @@
+name: Auto-Tag GENIE Commits by Agent
+
+on:
+  push:
+    paths:
+      - 'agents/**.py'
+      - 'dashboard/**.py'
+      - 'audit/**.py'
+
+jobs:
+  tag-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Tag Commit
+        run: |
+          AGENT=$(git diff --name-only HEAD~1 HEAD | grep 'agents/' | head -n 1 | cut -d'/' -f2 | cut -d'_' -f1)
+          TAG="agent-${AGENT}-$(date +%Y%m%d%H%M)"
+          git tag $TAG
+          git push origin $TAG
