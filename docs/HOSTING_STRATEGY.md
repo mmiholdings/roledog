@@ -1,0 +1,1 @@
+Hosting strategy placeholder
