@@ -1,0 +1,18 @@
+﻿name: README Sync
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild README
+        run: python scripts/build_readme.py
+      - name: Commit back
+        run: |
+          git config user.email 'actions@github.com'
+          git config user.name  'github-actions'
+          git add README.md
+          git diff --cached --quiet || git commit -m 'docs: auto-sync README'
+          git push

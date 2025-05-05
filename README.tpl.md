@@ -1,5 +1,5 @@
 ﻿# RoleDogs 🐕‍🦺🎬
-*(generated on > *TODO DATE*)*
+*(generated on {{DATE}})*
 
 > **Quick Index**  
 > • [Overview](#role_dogs)  • [Architecture](docs/ARCHITECTURE.md)  

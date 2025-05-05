@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "RoleDogs: dev up",
+      "type": "shell",
+      "command": "docker compose -f infra/docker-compose.dev.yml up -d && cd services/api && npm start | tee ../../api.log & cd ../../services/worker && node worker.js | tee ../../worker.log & cd ../../frontend && yarn dev",
+      "problemMatcher": []
+    }
+  ]
+}
