@@ -6,7 +6,8 @@ services:
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
     buildCommand: cd services/api && npm install
-    startCommand: cd services/api && npm start
+    # explicit start – bind to $PORT
+    startCommand: cd services/api && PORT=$PORT npm start
     autoDeploy: true
     healthCheckPath: /health
 
@@ -26,6 +27,8 @@ services:
     region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
+    # override the default; run container on $PORT
+    startCommand: docker run --rm -p $PORT:8080 roledogs-keycloak
     autoDeploy: true
 
 databases:
