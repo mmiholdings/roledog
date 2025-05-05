@@ -1,3 +1,4 @@
+# render.yaml
 services:
   - type: web
     name: roledogs-api
@@ -5,18 +6,31 @@ services:
     region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
-    buildCommand: |
-      # upgrade pip, increase timeout, disable cache
-      python -m pip install --upgrade pip
-      pip install --default-timeout=100 --no-cache-dir -r requirements.txt
-    startCommand: npm start
+    buildCommand: cd services/api && npm install
+    startCommand: cd services/api && npm start
     autoDeploy: true
-    envVars:
-      - key: RENDER_URL
-        value: https://roledogs.onrender.com
-      - key: KEYCLOAK_BASE
-        value: https://roledogs.onrender.com/keycloak
-      - key: POSTGRES_URL
-        value: ${{ databases.roledogs-db.connectionString }}
+    healthCheckPath: /health
 
-  # …same change for any other Python services, e.g. docs site…
+  - type: worker
+    name: roledogs-worker
+    env: node
+    region: ord
+    branch: main
+    repo: https://github.com/mmiholdings/roledogs.git
+    buildCommand: cd services/worker && npm install
+    startCommand: cd services/worker && node worker.js
+    autoDeploy: true
+
+  - type: web
+    name: roledogs-keycloak
+    env: docker
+    region: ord
+    branch: main
+    repo: https://github.com/mmiholdings/roledogs.git
+    # Let Render build & run via your Dockerfile; no explicit commands needed:
+    autoDeploy: true
+
+databases:
+  - name: roledogs-db
+    engine: postgres
+    plan: free
