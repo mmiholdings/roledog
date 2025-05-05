@@ -1,0 +1,42 @@
+[
+  {
+    "title": "AI Meets WinDBG",
+    "link": "https://svnscha.de/posts/ai-meets-windbg/"
+  },
+  {
+    "title": "Modern Latex",
+    "link": "https://github.com/mrkline/modern-latex"
+  },
+  {
+    "title": "I'd rather read the prompt",
+    "link": "https://claytonwramsey.com/blog/prompt/"
+  },
+  {
+    "title": "Semantic unit testing: test code without executing it",
+    "link": "https://www.alexmolas.com/2025/04/09/semantic-unit-testing.html"
+  },
+  {
+    "title": "Show HN: My AI Native Resume",
+    "link": "https://ai.jakegaylor.com/"
+  },
+  {
+    "title": "Design for 3D-Printing",
+    "link": "https://blog.rahix.de/design-for-3d-printing/"
+  },
+  {
+    "title": "On Not Carrying a Camera – Cultivating memories instead of snapshots",
+    "link": "https://hedgehogreview.com/issues/after-neoliberalism/articles/on-not-carrying-a-camera"
+  },
+  {
+    "title": "Matrix-vector multiplication implemented in off-the-shelf DRAM for Low-Bit LLMs",
+    "link": "https://arxiv.org/abs/2503.23817"
+  },
+  {
+    "title": "Urtext: The Python plaintext library for people who've tried everything else",
+    "link": "https://urtext.co/"
+  },
+  {
+    "title": "Helmdar: 3D Scanning Brooklyn on Rollerblades",
+    "link": "https://owentrueblood.com/blog/2025/05/04/helmdar/"
+  }
+]
