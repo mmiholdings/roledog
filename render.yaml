@@ -1,13 +1,12 @@
-# render.yaml
 services:
   - type: web
     name: roledogs-api
-    env: node                   # use the Node.js environment
-    region: ord                 # <-- make sure this matches your Render region
+    env: node
+    region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
-    buildCommand: "cd services/api && npm install"
-    startCommand: "cd services/api && npm start"
+    buildCommand: cd services/api && npm install
+    startCommand: cd services/api && npm start
     autoDeploy: true
     envVars:
       - key: RENDER_URL
@@ -23,8 +22,8 @@ services:
     region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
-    buildCommand: "cd services/worker && npm install"
-    startCommand: "cd services/worker && node worker.js"
+    buildCommand: cd services/worker && npm install
+    startCommand: cd services/worker && node worker.js
     autoDeploy: true
     envVars:
       - key: API_URL
@@ -40,8 +39,8 @@ services:
     region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
-    buildCommand: "docker build -f services/keycloak/Dockerfile -t roledogs-keycloak ."
-    startCommand: "docker run -p 8080:8080 roledogs-keycloak"
+    buildCommand: docker build -f services/keycloak/Dockerfile -t roledogs-keycloak .
+    startCommand: docker run -p 8080:8080 roledogs-keycloak
     autoDeploy: true
     envVars:
       - key: DB_URL
