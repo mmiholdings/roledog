@@ -1,47 +1,22 @@
-# render.yaml
-
 services:
   - type: web
     name: roledogs-api
     env: node
+    region: ord
     branch: main
     repo: https://github.com/mmiholdings/roledogs.git
-    buildCommand: npm install --prefix services/api
-    startCommand: npm run start --prefix services/api
+    buildCommand: |
+      # upgrade pip, increase timeout, disable cache
+      python -m pip install --upgrade pip
+      pip install --default-timeout=100 --no-cache-dir -r requirements.txt
+    startCommand: npm start
     autoDeploy: true
     envVars:
+      - key: RENDER_URL
+        value: https://roledogs.onrender.com
+      - key: KEYCLOAK_BASE
+        value: https://roledogs.onrender.com/keycloak
       - key: POSTGRES_URL
         value: ${{ databases.roledogs-db.connectionString }}
 
-  - type: worker
-    name: roledogs-worker
-    env: node
-    branch: main
-    repo: https://github.com/mmiholdings/roledogs.git
-    buildCommand: npm install --prefix services/worker
-    startCommand: node services/worker/worker.js
-    autoDeploy: true
-    envVars:
-      - key: POSTGRES_URL
-        value: ${{ databases.roledogs-db.connectionString }}
-      - key: MINIO_ENDPOINT
-        value: https://roledogs.onrender.com/minio
-
-  - type: web
-    name: roledogs-keycloak
-    env: docker
-    branch: main
-    repo: https://github.com/mmiholdings/roledogs.git
-    dockerfilePath: services/keycloak/Dockerfile
-    startCommand: java -jar /opt/keycloak/keycloak.jar start-dev
-    autoDeploy: true
-    envVars:
-      - key: KC_ADMIN_USER
-        value: admin
-      - key: KC_ADMIN_PASSWORD
-        value: admin
-
-databases:
-  - name: roledogs-db
-    engine: postgres
-    plan: free
+  # …same change for any other Python services, e.g. docs site…
